@@ -1,0 +1,29 @@
+services:
+  # Persistencia de datos para Ancla
+  anchorlife_db:
+    container_name: anchorlife_db
+    image: postgres:17
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - anchorlife_db_data:/var/lib/postgresql/data
+    ports:
+      - "${POSTGRES_EXTERNAL_PORT}:5432"
+
+  # Motor de IA local
+  anchorlife_llm:
+    container_name: anchorlife_llm
+    image: ollama/ollama:0.18.1
+    restart: unless-stopped
+    volumes:
+      - ollama_storage:/root/.ollama
+    ports:
+      - "11434:11434"
+
+# Los volúmenes se quedan porque si no, pierdes tus datos al apagar el contenedor
+volumes:
+  anchorlife_db_data:
+  ollama_storage:
