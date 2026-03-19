@@ -1,7 +1,13 @@
 package com.manuel.anchorlife.anchorlife.repositories;
 
-import com.manuel.anchorlife.anchorlife.models.User;
-import org.springframework.data.repository.CrudRepository;
+import com.manuel.anchorlife.anchorlife.models.entities.Event;
+import com.manuel.anchorlife.anchorlife.models.entities.FixedEvent;
+import com.manuel.anchorlife.anchorlife.models.entities.User;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends CrudRepository<User, Long> {
+import java.util.List;
+
+public interface UserRepository extends JpaRepository<User, Long> {
+    List<FixedEvent> findFixedEventsById(Long id);
+    List<Event>findEventsById(Long id);
 }

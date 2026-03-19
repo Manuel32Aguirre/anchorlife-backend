@@ -1,6 +1,5 @@
 package com.manuel.anchorlife.anchorlife.services;
 
-import com.manuel.anchorlife.anchorlife.models.User;
 import com.manuel.anchorlife.anchorlife.models.dto.request.UserRegisterRequest;
 import com.manuel.anchorlife.anchorlife.models.dto.response.UserRegisterResponse;
 

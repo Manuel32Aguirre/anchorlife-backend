@@ -1,14 +1,16 @@
 package com.manuel.anchorlife.anchorlife.models.mappers;
 
-import com.manuel.anchorlife.anchorlife.models.User;
+import com.manuel.anchorlife.anchorlife.models.entities.User;
 import com.manuel.anchorlife.anchorlife.models.dto.request.UserRegisterRequest;
-import org.springframework.stereotype.Component;
+import com.manuel.anchorlife.anchorlife.models.dto.response.UserRegisterResponse;
+import org.mapstruct.Mapper;
 
-@Component
-public class UserMapper {
+@Mapper(componentModel = "spring")
+public interface UserMapper {
     //Para el registro
     //De Request a entidad
-    public User toEntity(UserRegisterRequest userRegisterRequest) {
+    public User toEntity(UserRegisterRequest userRegisterRequest);
+    //De entidad a response
+    public UserRegisterResponse toResponse(User user);
 
-    }
 }

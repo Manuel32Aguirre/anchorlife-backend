@@ -1,4 +1,4 @@
-package com.manuel.anchorlife.anchorlife.models;
+package com.manuel.anchorlife.anchorlife.models.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-package com.manuel.anchorlife.anchorlife.models;
+package com.manuel.anchorlife.anchorlife.models.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -22,13 +22,13 @@ public class User {
 
     private String password;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "user_events",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "event_id")
-    )
-    private List<Event> event;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private List<Event> events;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private List<FixedEvent> fixedEvents;
 
 
 }
