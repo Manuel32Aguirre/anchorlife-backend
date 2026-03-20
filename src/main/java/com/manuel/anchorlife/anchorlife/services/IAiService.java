@@ -6,5 +6,5 @@ import com.manuel.anchorlife.anchorlife.models.entities.FixedEvent;
 import java.util.List;
 
 public interface IAiService {
-    Event parseText(String rawText, List<FixedEvent> fixedEventList);
+    List<Event> parseText(String rawText, List<FixedEvent> fixedEventList,  List<Event> currentEvents);
 }
